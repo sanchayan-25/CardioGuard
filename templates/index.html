@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Predictor</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin: 5px;
+        }
+        button {
+            background: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 95%;
+            font-size: 16px;
+        }
+        h2 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<a href="/logout">
+    <button>Logout</button>
+</a>
+<div class="container">
+    <h2>❤️ Heart Disease Prediction</h2>
+
+    <form action="/predict" method="post">
+        <input type="number" name="age" placeholder="Age" required>
+        
+        <select name="sex">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+
+        <input type="number" name="cp" placeholder="Chest Pain (0-3)" required>
+        <input type="number" name="trestbps" placeholder="Blood Pressure" required>
+        <input type="number" name="chol" placeholder="Cholesterol" required>
+
+        <select name="fbs">
+            <option value="1">FBS > 120 (Yes)</option>
+            <option value="0">FBS ≤ 120 (No)</option>
+        </select>
+
+        <input type="number" name="restecg" placeholder="Rest ECG (0-2)" required>
+        <input type="number" name="thalach" placeholder="Max Heart Rate" required>
+
+        <select name="exang">
+            <option value="1">Exercise Angina Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <input type="number" step="0.1" name="oldpeak" placeholder="Oldpeak" required>
+        <input type="number" name="slope" placeholder="Slope (0-2)" required>
+        <input type="number" name="ca" placeholder="Vessels (0-3)" required>
+        <input type="number" name="thal" placeholder="Thal (1-3)" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</div>
+
+</body>
+</html>
